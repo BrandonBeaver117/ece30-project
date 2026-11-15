@@ -221,6 +221,23 @@ getMemoAddr:
 
         //YOUR CODE STARTS HERE
 
+        // i * stride
+        MUL X9, X1, X3
+        // Adding current capacity
+        // X9 = (i * stride) + capacity
+        ADD X9, X9, X2
+        
+        // Load 8 into temp variable (X10)
+        ADDI X10, XZR, #8
+
+        // Multiplying all by 8 (to transform into bytes)
+        // (i * stride + capacity) * 8
+        MUL X9, X9, X10
+
+        // memo is X0, and return is in X0, so
+        // memo + (i * stride + capacity) * 8
+        ADD X0, X0, X9
+
         BR     LR                 // placeholder so the file loads; replace with your code
 
 
