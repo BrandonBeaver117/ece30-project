@@ -284,8 +284,48 @@ recoverSelection:
         //  X0: The number of selected items.
 
         //YOUR CODE STARTS HERE
+//Allocating 
+SUBI SP, SP, #72
+STUR FP, [SP,#64]
+ADDI FP, SP, #72 
+STUR LR, [SP,#56]
+STUR X19,[SP,#48]
+STUR X20,[SP,#40]
+STUR X21,[SP,#32]
+STUR X22,[SP,#24]
+STUR X23,[SP,#16]
+STUR X24,[SP,#8]
+STUR X25,[SP,#0]
+//Initializing selected count, saving it in saved register X19
+ADDI X19,XZR,#0
+//Setting X20 (i) equal to n
+ADDI X20,X2,#0
+//Setting X21 equal to capacity 
+ADDI X21,X3,#0
+//while loop label
+while:
+//Checking if i>0
+SUBIS XZR,X20,#0
+//Branch to end the loop if less than
+B.LE end
+//Checking if c>0
+SUBIS XZR,X21,#0
+//Branch to end the loop if less than
+B.LE end
 
-        BR     LR                 // placeholder so the file loads; replace with your code
+ end: 
+LDUR FP, [SP,#64]
+LDUR LR, [SP,#56]
+LDUR X19,[SP,#48]
+LDUR X20,[SP,#40]
+LDUR X21,[SP,#32]
+LDUR X22,[SP,#24]
+LDUR X23,[SP,#16]
+LDUR X24,[SP,#8]
+LDUR X25,[SP,#0]
+ADDI SP, SP, #72
+
+      BR     LR                 // placeholder so the file loads; replace with your code
 
 
         //YOUR CODE ENDS HERE
