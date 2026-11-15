@@ -1,6 +1,6 @@
 // ========================================================================================
 //     TEAM  INFO
-// Group member 1 name:
+// Group member 1 name: Alex 
 // Group member 1 PID:
 // Group member 2 name:
 // Group member 2 PID:
@@ -194,7 +194,14 @@ max2:
         //  X0: The larger of a and b.
 
         //YOUR CODE STARTS HERE
-
+//Compare the values in X0 and X1 and set flags for zero/nonzero outcome
+SUBS X31, X0, X1
+//Set up a branch for if the value in X0 is greater
+B.GT agreater
+//Setting X0 equal to the value in X1 if it is greater
+ADDI X0,X1,#0
+//Jumping to return to the link register if X0 is greater
+agreater:
         BR     LR                 // placeholder so the file loads; replace with your code
 
 
